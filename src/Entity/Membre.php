@@ -50,6 +50,26 @@ class Membre implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $deletedAt;
 
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $pseudo;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $civilite;
+
 
     public function getId(): ?int
     {
@@ -172,6 +192,53 @@ class Membre implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDeletedAt(?\DateTimeInterface $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+    public function getGenre(): ?string
+    {
+        return $this->civilite;
+    }
+
+    public function setCivilite(string $civilite): self
+    {
+        $this->civilite = $civilite;
 
         return $this;
     }
