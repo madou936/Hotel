@@ -26,21 +26,16 @@ class MembreController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
+            $membre->setRoles(['ROLE_USER']);
             $membre->setCreatedAt(new DateTime());
             $membre->setUpdatedAt(new DateTime());
-            $membre->setRoles(['ROLE_USER']);
 
-            $plainPassword = $form->get('password')->getData();
-            $membre->setPassword(
-                $passwordHasher->hashPassword(
-                    $membre,$plainPassword
-                )
-            );
+            
 
             $entityManager->persist($membre);
-            $entityManager->flush();
+            // $entityManager->flush();
 
-            return $this->redirectToRoute('default_home');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render("membre/register.html.twig", [
