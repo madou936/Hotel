@@ -30,6 +30,13 @@ class MembreController extends AbstractController
             $membre->setUpdatedAt(new DateTime());
             $membre->setRoles(['ROLE_USER']);
 
+            $plainPassword = $form->get('password')->getData();
+            $membre->setPassword(
+                $passwordHasher->hashPassword(
+                    $membre,$plainPassword
+                )
+            );
+
             $entityManager->persist($membre);
             $entityManager->flush();
 
