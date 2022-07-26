@@ -9,9 +9,13 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+/.vscode/*
+/public/img/    
+/public/uploads/
+
 ###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
+# /phpunit.xml
+# .phpunit.result.cache
 ###< phpunit/phpunit ###
 
 ###> symfony/phpunit-bridge ###

@@ -47,11 +47,7 @@ class Chambre
      */
     private $prixJournalier;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $dateEnregistrement;
-
+   
     public function getId(): ?int
     {
         return $this->id;
@@ -125,18 +121,6 @@ class Chambre
     public function setPrixJournalier(int $prixJournalier): self
     {
         $this->prixJournalier = $prixJournalier;
-
-        return $this;
-    }
-
-    public function getDateEnregistrement(): ?\DateTimeInterface
-    {
-        return $this->dateEnregistrement;
-    }
-
-    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
-    {
-        $this->dateEnregistrement = $dateEnregistrement;
 
         return $this;
     }

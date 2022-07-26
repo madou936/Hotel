@@ -10,10 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ChambreController extends AbstractController
 {
     /**
-     * @Route("/voir-les-chambres", name="show_rooms", methods={"GET"})
+     * @Route("/voir-les-chambres", name="show_chambres", methods={"GET"})
      */
-    public function chambre(EntityManagerInterface $entityManager): Response
+    public function showChambres(EntityManagerInterface $entityManager): Response
     {   
-        return $this->render("chambre/chambre.html.twig");
+        return $this->render("chambre/show_chambres.html.twig");
     }
 }

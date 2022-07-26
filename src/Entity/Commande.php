@@ -18,16 +18,6 @@ class Commande
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $idCommande;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idChambre;
-
-    /**
      * @ORM\Column(type="date")
      */
     private $dateArrivee;
@@ -62,39 +52,13 @@ class Commande
      */
     private $email;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $dateEnregistrement;
+   
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdCommande(): ?int
-    {
-        return $this->idCommande;
-    }
-
-    public function setIdCommande(int $idCommande): self
-    {
-        $this->idCommande = $idCommande;
-
-        return $this;
-    }
-
-    public function getIdChambre(): ?int
-    {
-        return $this->idChambre;
-    }
-
-    public function setIdChambre(int $idChambre): self
-    {
-        $this->idChambre = $idChambre;
-
-        return $this;
-    }
 
     public function getDateArrivee(): ?\DateTimeInterface
     {
@@ -180,15 +144,4 @@ class Commande
         return $this;
     }
 
-    public function getDateEnregistrement(): ?\DateTimeInterface
-    {
-        return $this->dateEnregistrement;
-    }
-
-    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
-    {
-        $this->dateEnregistrement = $dateEnregistrement;
-
-        return $this;
-    }
 }
