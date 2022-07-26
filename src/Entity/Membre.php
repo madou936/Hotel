@@ -231,7 +231,7 @@ class Membre implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    public function getGenre(): ?string
+    public function getCivilite(): ?string
     {
         return $this->civilite;
     }

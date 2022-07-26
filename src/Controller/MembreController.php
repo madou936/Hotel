@@ -28,7 +28,7 @@ class MembreController extends AbstractController
         {
             $membre->setCreatedAt(new DateTime());
             $membre->setUpdatedAt(new DateTime());
-            $membre->setRoles(['ROLE_MEMBRE']);
+            $membre->setRoles(['ROLE_USER']);
 
             $entityManager->persist($membre);
             $entityManager->flush();
