@@ -62,6 +62,11 @@ class Chambre
      */
     private $deletedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $alias;
+
    
     public function getId(): ?int
     {
@@ -172,6 +177,18 @@ class Chambre
     public function setDeletedAt(?\DateTimeInterface $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getAlias(): ?string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(string $alias): self
+    {
+        $this->alias = $alias;
 
         return $this;
     }
