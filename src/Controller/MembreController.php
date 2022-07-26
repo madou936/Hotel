@@ -19,15 +19,15 @@ class MembreController extends AbstractController
     public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         // 1
-       $membre = new Membre();
+    //    $membre = new Membre();
         // 2
-       $form = $this->createForm(MembreFormType::class, $membre)
-       ->handleRequest($request);
+    //    $form = $this->createForm(MembreFormType::class)
+    //    ->handleRequest($request);
 
 
      //    3
      return $this->render("membre/register.html.twig", [
-        'form' =>$form->createView()
+        // 'form' =>$form->createView()
      ]);
  
     }

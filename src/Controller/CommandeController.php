@@ -10,11 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CommandeController extends AbstractController
 {
     /**
-     * @Route("/voir-les-commande", name="show_commande", methods={"GET"})
+     * @Route("/voir-les-commandes", name="show_commandes", methods={"GET"})
      */
-    public function showCommande(EntityManagerInterface $entityManager): Response
+    public function showCommandes(EntityManagerInterface $entityManager): Response
     {   
-        return $this->render("commande/show_commande.html.twig");
+        return $this->render("commande/show_commandes.html.twig");
     }
     
 }
