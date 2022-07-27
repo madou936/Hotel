@@ -26,9 +26,9 @@ class MembreController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $membre->setRoles(['ROLE_USER']);
             $membre->setCreatedAt(new DateTime());
             $membre->setUpdatedAt(new DateTime());
+            $membre->setRoles(['ROLE_USER']);
 
             
 
