@@ -25,7 +25,7 @@ class CommandeController extends AbstractController
             ->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            
+
             $commande->setCreatedAt(new DateTime());
             $commande->setUpdatedAt(new DateTime());
 

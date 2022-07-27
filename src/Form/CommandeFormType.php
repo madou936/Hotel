@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -26,7 +27,9 @@ class CommandeFormType extends AbstractType
                 'label' => 'Date de départ',
                 'widget' => 'single_text'
             ])
-            // ->add('prixTotal')
+            ->add('prixTotal', MoneyType::class, [
+                'label' => 'Prix total'
+            ])
             ->add('prenom', TextType::class, [
                 'label' => 'Prénom',
                 'constraints' => [
