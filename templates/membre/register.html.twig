@@ -12,13 +12,15 @@
             <div class="col-6 mx-auto">
                 {{ form_start(form) }}
 
-                <div class="row">
-                    <div class="col-6">{{ form_row(form.pseudo) }}</div>
-                    <div class="col-6">{{ form_row(form.nom) }}</div>
-                    <div class="col-6">{{ form_row(form.prenom) }}</div>
-                    <div class="col-6">{{ form_row(form.email) }}</div>
-                    <div class="col-6">{{ form_row(form.civilite) }}</div>
-                    <div class="col-6">{{ form_row(form.mdp) }}</div>
+                <div class="row mb-3">
+                    <div class="col-4">{{ form_row(form.pseudo) }}</div>
+                    <div class="col-4">{{ form_row(form.nom) }}</div>
+                    <div class="col-4">{{ form_row(form.prenom) }}</div>
+                </div>
+                <div class="row m-auto">
+                    <div class="col-4">{{ form_row(form.civilite) }}</div>
+                    <div class="col-4">{{ form_row(form.email) }}</div>
+                    <div class="col-4">{{ form_row(form.password) }}</div>
                 </div>
 
                 {{ form_end(form) }}
