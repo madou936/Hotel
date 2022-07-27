@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ChambreFormType extends AbstractType
@@ -50,6 +51,13 @@ class ChambreFormType extends AbstractType
                 'label' => 'Prix',
                 'attr' => [
                     'placeholder' => 'Prix €'
+                ],
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Valider',
+                'validate' => false,
+                'attr' => [
+                    'class' => 'd-block mx-auto my-3 col-3 btn btn-success'
                 ],
             ])
         ;

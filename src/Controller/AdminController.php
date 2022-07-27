@@ -10,10 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
 
 /**
  * @Route("/admin")
@@ -21,8 +23,8 @@ use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 class AdminController extends AbstractController
 {   
     /**
-     * @Route("/tableau-de-bord", name="show_dashboard", methods={"GET"})
-     */
+    * @Route("/tableau-de-bord", name="show_dashboard", methods={"GET"})
+    */
     public function showDashboard(EntityManagerInterface $entityManager): Response
     {
         try {
@@ -39,9 +41,9 @@ class AdminController extends AbstractController
         ]);
     } 
 
-     /**
-     * @Route("/ajouter-un-chambre", name="create_chambre", methods={"GET|POST"})
-     */
+    /**
+    * @Route("/ajouter-un-chambre", name="create_chambre", methods={"GET|POST"})
+    */
     public function createChambre(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $chambre = new Chambre();
@@ -49,8 +51,8 @@ class AdminController extends AbstractController
         $form = $this->createForm(ChambreFormType::class, $chambre)
             ->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
-
+        if($form->isSubmitted() && $form->isValid()) 
+        {
             $chambre->setCreatedAt(new DateTime());
             $chambre->setUpdatedAt(new DateTime());
 
@@ -59,7 +61,8 @@ class AdminController extends AbstractController
              /** @var UploadedFile $photo */
             $photo = $form->get('photo')->getData();
 
-            if($photo) {
+            if($photo) 
+            {
                 # Déconstructioon
                 $extension = '.' . $photo->guessExtension();
                 $originalFilename = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
@@ -72,22 +75,25 @@ class AdminController extends AbstractController
                     $photo->move($this->getParameter('uploads_dir'), $newFilename);
                     $chambre->setPhoto($newFilename);
                 }
-                catch(FileException $exception) {
+                catch(FileException $exception)
+                {
                     # Code à exécuter en cas d'erreur.
                 }
             } # end if($photo)
 
-                $entityManager->persist($chambre);
-                $entityManager->flush();
+            $entityManager->persist($chambre);
+            $entityManager->flush();
 
-                $this->addFlash('success', "La chambre est en ligne avec succès !");
-                return $this->redirectToRoute('show_dashboard');
-
+            $this->addFlash('success', "La chambre est en ligne avec succès !");
+            return $this->redirectToRoute('show_dashboard');
         }
+        return $this->render('admin/form/admin_chambre.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
     
 
-     /**
+    /**
      * @Route("/modifier-une-chambre_{id}", name="update_chambre", methods={"GET|POST"})
      */
     public function updateChambre(Chambre $chambre, Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
