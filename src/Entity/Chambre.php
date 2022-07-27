@@ -18,11 +18,6 @@ class Chambre
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $idChambre;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $titre;
@@ -73,17 +68,7 @@ class Chambre
         return $this->id;
     }
 
-    public function getIdChambre(): ?int
-    {
-        return $this->idChambre;
-    }
-
-    public function setIdChambre(int $idChambre): self
-    {
-        $this->idChambre = $idChambre;
-
-        return $this;
-    }
+   
 
     public function getTitre(): ?string
     {
