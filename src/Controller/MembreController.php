@@ -21,7 +21,7 @@ class MembreController extends AbstractController
     {
         $membre = new Membre();
 
-        $form = $this->createForm(RegisterFormType::class)
+        $form = $this->createForm(RegisterFormType::class, $membre)
         ->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
@@ -30,10 +30,12 @@ class MembreController extends AbstractController
             $membre->setUpdatedAt(new DateTime());
             $membre->setRoles(['ROLE_USER']);
 
+            $plainPassword = $form->get('password')->getData();
+            $membre->setPassword($passwordHasher->hashPassword($membre,$plainPassword));
             
 
             $entityManager->persist($membre);
-            // $entityManager->flush();
+            $entityManager->flush();
 
             return $this->redirectToRoute('default_home');
         }
