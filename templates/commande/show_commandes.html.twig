@@ -1,35 +1,66 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Commande{% endblock %}
+{% block title %}Résérvation{% endblock %}
 
 {% block body %}
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{ asset('img/lit1.jpg') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('img/lit2.jpg') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('img/lit3.jpg') }}" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
+    <h1 class="text-center text-primary">Résérver une chambre</h1>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('img/lit1.jpg') }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('img/lit2.jpg') }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('img/lit3.jpg') }}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
+    <div class="row">
+        <div class="col-6 mx-auto my-5">
+            <h3 class="text-center">Equipements et informations</h3>
+            <p class="text-center">Situé dans le 1er arrondissement de Paris, à 500 metres de la célèbre Tour Eiffel, l'Hotel House dispose d'un restaurant et d'une salle de sport. A proximité vous trouverez également de nombreux points d'intérêts. Entièrement non-fumeurs, cet hôte propose de charmantes chambres climatisées dotées d'une salle de bains privative bien entretenue et d'une télévision par satellite à écran plat. Les autres installations de l'hotel comprennent une salle de réunion pouvant accueillir jusqu'à 80 personnes. Grâce aux nombreux transports en commun disponibles dans les environs immédiats, vous pourrez facilement visiter les célèbres quartiers de Paris comme les Champs-Elysées, l'Arc de Triomphe et le musée du Louvre. De nombreux magasins, restaurants et cinémas sont installés aux alentours. C'est le quartier préféré des voyageurs visitant Paris. La suite fait 100m² et le petit-dejeuner est systématiquement inclu. </p>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-6 mx-auto">
+            {{ form_start(form) }}
+
+                <div class="row">
+                    <div class="h3 text-center">Suite</div>
+                    <div class="col-6">{{ form_row(form.dateArrivee) }}</div>
+                    <div class="col-6">{{ form_row(form.dateDepart) }}</div>
+                </div>
+
+                <h3 class="text-center">Saississez vos coordonnées</h3>
+                {{ form_row(form.prenom) }}
+
+                {{ form_row(form.nom) }}
+
+                {{ form_row(form.telephone) }}
+
+                {{ form_row(form.email) }}
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    
 {% endblock %}
