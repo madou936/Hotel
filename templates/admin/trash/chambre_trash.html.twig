@@ -38,7 +38,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for chambre in chambres %}
+       
         <tr>
             <td>{{ chambre.id }}</td>
             <td>{{ chambre.titre }}</td>
@@ -51,12 +51,12 @@
                 <a href="{{ path('hard_delete_chambre', {"id": chambre.id}) }}" class="text-danger" title="Supprimer définitivement la chambre" onclick="return confirm('Voulez-vous supprimer definitivement chambre ?')"><i class="fa-solid fa-times-circle"></i></a>
             </td> #}
         </tr>
-            {% else %}
+            
             <tr>
-                <td colspan="7" class="bg-warning text-center">Aucun chambre dans la poubelle</td>
+                {# <td colspan="7" class="bg-warning text-center">Aucun chambre dans la poubelle</td> #}
 
             </tr>
-                {% endfor %}
+               
                 </tbody>
             </table>
 

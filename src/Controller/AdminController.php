@@ -180,7 +180,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/voir-les-chambres-archives", name="show_trash", methods={"GET"})
+     * @Route("/voir-les-chambres-archives_{id}", name="show_trash", methods={"GET"})
      */
     public function showTrash(EntityManagerInterface $entityManager): Response
     {
