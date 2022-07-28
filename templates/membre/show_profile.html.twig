@@ -11,7 +11,9 @@
             {% include "include/_flashes.html.twig" %}
         </div>
     </div>
-
+    {% if not app.user %}
+        <h2 class="text-center">Désolé il faut vous connecter avant d'accèder à l'espace perso <i class="fa-solid fa-ban"></i></h2>      
+    {% else %}
     <div class="row">
         <div class="col-10 mx-auto">
             <div class="card text-center">
@@ -33,4 +35,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
