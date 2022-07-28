@@ -27,8 +27,12 @@
                 <img src="{{ asset('img/resto.jpg') }}" class="rounded-circle" alt="" width="50%" />
                 <h5 class="text-secondary">Restaurant</h5>
                 <p class="text-secondary">Nos plats sont confectionnés à la minute par notre chef cuisiner chaque jour.</p>
-                <button type="button" class="btn btn-secondary" href="{{ path('app_menu') }}">Voir la carte</button>
-
+                <button type="button" class="btn btn-secondary">
+                  <li class ="nav-item">
+                    <a class="nav-link" href="{{ path('app_menu') }}">Voir la carte</a>
+                   </li>
+                </button>
+                
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <img src="{{ asset('img/spa.jpg') }}" class="rounded-circle" alt="" width="50%" />
