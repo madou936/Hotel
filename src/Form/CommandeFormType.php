@@ -28,7 +28,7 @@ class CommandeFormType extends AbstractType
                 'widget' => 'single_text'
             ])
             ->add('prixTotal', MoneyType::class, [
-                'label' => 'Prix total'
+                'label' => 'Prix total',
             ])
             ->add('prenom', TextType::class, [
                 'label' => 'Prénom',
