@@ -35,7 +35,10 @@ class CommandeFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                        'message' => 'Ce champ ne peut être vide.'
-                    ]),
+                    ])
+                ],
+                'attr' => [
+                    'placeholder' => 'Veuillez inscrire votre prénom'    
                 ]
             ])
             ->add('nom', TextType::class, [
@@ -43,7 +46,10 @@ class CommandeFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                        'message' => 'Ce champ ne peut être vide.'
-                    ]),
+                    ])
+                ],
+                'attr' => [
+                    'placeholder' => 'Veuillez inscrire votre nom'    
                 ]
             ])
             ->add('telephone', NumberType::class, [
@@ -51,22 +57,28 @@ class CommandeFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                        'message' => 'Ce champ ne peut être vide.'
-                    ]),
+                    ])
+                ],
+                'attr' => [
+                    'placeholder' => 'Veuillez inscrire votre N° de téléphone'    
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'E-mail',
                 'constraints' => [
                     new NotBlank([
                        'message' => 'Ce champ ne peut être vide.'
-                    ]),
-                ]
+                    ])
+                ],
+                'attr' => [
+                        'placeholder' => 'Veuillez inscrire votre e-mail'    
+                    ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider ma résérvation',
                 'validate' => false,
                 'attr' => [
-                    'class' => 'd-block col-3 my-3 mx-auto btn btn-success'
+                    'class' => 'd-block col-5 my-5 mx-auto btn btn-success'
                 ]
             ])
         ;

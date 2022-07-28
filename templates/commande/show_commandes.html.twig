@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <h1 class="text-center text-primary">Résérver une chambre</h1>
+    <h1 class="text-center text-primary py-5">Résérver une chambre</h1>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -33,27 +33,32 @@
     </div>
 
     <div class="row">
-        <div class="col-6 mx-auto my-5">
-            <h3 class="text-center">Equipements et informations</h3>
-            <p class="text-center">Situé dans le 1er arrondissement de Paris, à 500 metres de la célèbre Tour Eiffel, l'Hotel House dispose d'un restaurant et d'une salle de sport. A proximité vous trouverez également de nombreux points d'intérêts. Entièrement non-fumeurs, cet hôte propose de charmantes chambres climatisées dotées d'une salle de bains privative bien entretenue et d'une télévision par satellite à écran plat. Les autres installations de l'hotel comprennent une salle de réunion pouvant accueillir jusqu'à 80 personnes. Grâce aux nombreux transports en commun disponibles dans les environs immédiats, vous pourrez facilement visiter les célèbres quartiers de Paris comme les Champs-Elysées, l'Arc de Triomphe et le musée du Louvre. De nombreux magasins, restaurants et cinémas sont installés aux alentours. C'est le quartier préféré des voyageurs visitant Paris. La suite fait 100m² et le petit-dejeuner est systématiquement inclu. </p>
+        <div class="col-6 mx-auto card text-light bg-dark my-5">
+            <div class="card-header text-center">Equipements et informations</div>
+            <div class="card-body">
+                <p class="card-text">Situé dans le 1er arrondissement de Paris, à 500 metres de la célèbre Tour Eiffel, l'Hotel House dispose d'un restaurant et d'une salle de sport. A proximité vous trouverez également de nombreux points d'intérêts. Entièrement non-fumeurs, cet hôte propose de charmantes chambres climatisées dotées d'une salle de bains privative bien entretenue et d'une télévision par satellite à écran plat. Les autres installations de l'hotel comprennent une salle de réunion pouvant accueillir jusqu'à 80 personnes. Grâce aux nombreux transports en commun disponibles dans les environs immédiats, vous pourrez facilement visiter les célèbres quartiers de Paris comme les Champs-Elysées, l'Arc de Triomphe et le musée du Louvre. De nombreux magasins, restaurants et cinémas sont installés aux alentours. C'est le quartier préféré des voyageurs visitant Paris. La suite fait 100m² et le petit-dejeuner est systématiquement inclu. </p>
+            </div>
         </div>
     </div>
+                <hr>
 
     <div class="row">
         <div class="col-6 mx-auto">
             {{ form_start(form) }}
 
+                <h3 class="text-center py-5">Définissez la durée de votre séjour</h3>
+
                 <div class="row">
-                    <div class="h3 text-center">Suite</div>
                     <div class="col-4">{{ form_row(form.dateArrivee) }}</div>
                     <div class="col-4">{{ form_row(form.dateDepart) }}</div>
                     <div class="col-4">{{ form_row(form.prixTotal) }}</div>
                 </div>
-
-                <h3 class="text-center">Saississez vos coordonnées</h3>
-                {{ form_row(form.prenom) }}
-
-                {{ form_row(form.nom) }}
+                <h3 class="text-center py-5">Saississez vos coordonnées</h3>
+                
+                <div class="row">
+                    <div class="col-6">{{ form_row(form.prenom) }}</div>
+                    <div class="col-6">{{ form_row(form.nom) }}</div>
+                </div>
 
                 {{ form_row(form.telephone) }}
 
