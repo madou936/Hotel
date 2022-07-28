@@ -13,8 +13,12 @@
     </div>
 
 <div>
+
 <div><a href="#">Ajouter une chambre</a></div>
-<div><a href="#">voire les archive</a></div>
+
+<div><a href="{{ path('show_trash') }}">voire les archive</a></div>
+
+
 </div>
 
     <table class="table">
@@ -39,8 +43,8 @@
             <td>{{ chambre.photo}}</td>
             <td>{{ chambre.prixJournalier}}</td>
             <td>
-            {# <a href="{{ path('update_chambre', {"id": chambre.id}) }}" class="text-info" title="Modifier la chambre"><i class="fa fa-edit"></i></a> #}
-             {# <a href="{{ path('soft_delete_chambre', {'id': chambre.id}) }}" class="text-danger" title="Archiver la chambre" onclick="return confirm('Voulez-vous archiver cette chambre ?')"><i class="fa fa-trash"></i></a> #}
+            <a href="{{ path('update_chambre', {"id": chambre.id}) }}" class="text-info" title="Modifier la chambre"><i class="fa fa-edit"></i></a>
+             <a href="{{ path('soft_delete_chambre', {"id": chambre.id}) }}" class="text-danger" title="Archiver la chambre" onclick="return confirm('Voulez-vous archiver cette chambre ?')"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
         {% endfor %}
