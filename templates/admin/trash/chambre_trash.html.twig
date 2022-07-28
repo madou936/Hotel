@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voir la poubele
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+		<div class="col-10 mx-auto my-4">
+			{% include 'include/_flashes.html.twig' %}
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-12 text-center">
+			
+			<a href="{{ path('show_dashboard') }}"><i class="fa-solid fa-arrow-left"></i>Retour au Dashboard</a>
+		</div>
+	</div>
+
+<div class="row">
+        <div class="col-10 mx-auto my-4">
+
+            <h2 class="text-center">Tous les chambres archivé</h2>
+
+            <table class="table">
+                <thead>
+            
+            <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>description courte</th>
+            <th>description Longur</th>
+            <th>photo</th>
+            <th>Prix</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+       {% for chambre in archivedChambres %}
+        <tr>
+            <td>{{ chambre.id }}</td>
+            <td>{{ chambre.titre }}</td>
+            <td>{{ chambre.descriptionCourte }}</td>
+            <td>{{ chambre.descriptionLongue}}</td>
+            <td>{{ chambre.photo}}</td>
+            <td>{{ chambre.prixJournalier}}</td> 
+            <td>
+                <a href="{{ path('restore_chambre', {"id": chambre.id}) }}" class="text-info" title="Restaurer les chambre"><i class="fa-solid fa-trash-arrow-up"></i></a>
+                <a href="{{ path('hard_delete_chambre', {"id": chambre.id}) }}" class="text-danger" title="Supprimer définitivement la chambre" onclick="return confirm('Voulez-vous supprimer definitivement chambre ?')"><i class="fa-solid fa-times-circle"></i></a>
+            </td>
+        </tr>
+            {% else %}
+                
+            <tr>
+                 <td colspan="7" class="bg-warning text-center">Aucun chambre dans la poubelle</td>
+            </tr>
+            {% endfor %}
+               
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}

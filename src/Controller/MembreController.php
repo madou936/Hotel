@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Membre;
 use App\Form\RegisterFormType;
+use App\Form\ChangePasswordFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,5 +45,43 @@ class MembreController extends AbstractController
             'form' =>$form->createView()
         ]);
  
+    }
+
+    /**
+     * @Route("profil/mon-espace-perso", name="show_profile", methods={"GET"})
+     */
+    public function showProfile(): Response
+    {
+        return $this->render("membre/show_profile.html.twig");
+    }
+
+    /**
+     * @Route("profil/changer-mdp/{id}", name="change_password", methods={"GET|POST"})
+     */
+    public function changePassword(EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher, Request $request): Response
+    {
+        $form = $this->createForm(ChangePasswordFormType::class)->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            /** @var Membre $user */
+            $user = $entityManager->getRepository(Membre::class)->findOneBy(['id' => $this->getUser()]);
+
+            $user->setUpdatedAt(new DateTime());
+
+            $user->setPassword($passwordHasher->hashPassword(
+                $user, $form->get('plainPassword')->getData()));
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+            
+            $this->addFlash('success', "Votre mot de passe a bien été changé");
+            return $this->redirectToRoute('show_profile');
+        }
+
+        return $this->render('membre/change_password.html.twig', [
+            'form' => $form->createView(),
+            'action' => 'modif'
+        ]);
     }
 }
