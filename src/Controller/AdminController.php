@@ -100,9 +100,9 @@ class AdminController extends AbstractController
     {
         $originalPhoto = $chambre->getPhoto();
 
-        $form = $this->createForm(ChambreFormType::class, $chambre, [
-            'photo' => $originalPhoto
-        ])->handleRequest($request);
+        $photo = $originalPhoto;
+
+        $form = $this->createForm(ChambreFormType::class, $chambre)->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
@@ -180,7 +180,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/voir-les-chambres-archives_{id}", name="show_trash", methods={"GET"})
+     * @Route("/voir-les-chambres-archives", name="show_trash", methods={"GET"})
      */
     public function showTrash(EntityManagerInterface $entityManager): Response
     {

@@ -36,17 +36,14 @@ class ChambreFormType extends AbstractType
                 ],
                 ])
             ->add('photo', FileType::class, [
-                'label' => "Photo",
+                'label' => 'Photo',
                 'data_class' => null,
-                'constraints' => [
-                    new Image([
-                        'mimeTypes' => ['image/jpeg', 'image/png'],
-                        'mimeTypesMessage' => 'Les formats autorisés sont .jpg ou .png',
-                        'maxSize' => '3M',
-                        'maxSizeMessage' => 'Le poids maximal du fichier est : {{ limit }} {{ suffix }} ({{ name }}: {{ size }} {{ suffix }})',
-                    ])
-                ]
-             ])
+                'attr' => [
+                    'data-default-file' => $options['photo']
+                ],
+                'required' => false,
+                'mapped' => false,
+                ])
             ->add('prixJournalier', TextType::class, [
                 'label' => 'Prix',
                 'attr' => [
@@ -67,6 +64,8 @@ class ChambreFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Chambre::class,
+            'allow_file_upload' => true,
+            "photo" => null
         ]);
     }
 }

@@ -13,11 +13,11 @@
     </div>
 
 <div>
-{% if chambre is not defined %}
+
 <div><a href="#">Ajouter une chambre</a></div>
-{% else %}
-<div><a href="#">voire les archive</a></div>
-{% endif %}
+
+<div><a href="{{ path('show_trash') }}">voire les archive</a></div>
+
 
 </div>
 

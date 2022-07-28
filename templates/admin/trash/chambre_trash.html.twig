@@ -26,7 +26,7 @@
 
             <table class="table">
                 <thead>
-                <tr>
+            
             <tr>
             <th>#</th>
             <th>Titre</th>
@@ -38,24 +38,25 @@
         </tr>
         </thead>
         <tbody>
-       
+       {% for chambre in archivedChambres %}
         <tr>
             <td>{{ chambre.id }}</td>
             <td>{{ chambre.titre }}</td>
             <td>{{ chambre.descriptionCourte }}</td>
             <td>{{ chambre.descriptionLongue}}</td>
             <td>{{ chambre.photo}}</td>
-            <td>{{ chambre.prixJournalier}}</td>
-            {# <td>
-                <a href="{{ path('update_chambre', {"id": chambre.id}) }}" class="text-info" title="Restaurer les chambre"><i class="fa-solid fa-trash-arrow-up"></i></a>
+            <td>{{ chambre.prixJournalier}}</td> 
+            <td>
+                <a href="{{ path('restore_chambre', {"id": chambre.id}) }}" class="text-info" title="Restaurer les chambre"><i class="fa-solid fa-trash-arrow-up"></i></a>
                 <a href="{{ path('hard_delete_chambre', {"id": chambre.id}) }}" class="text-danger" title="Supprimer définitivement la chambre" onclick="return confirm('Voulez-vous supprimer definitivement chambre ?')"><i class="fa-solid fa-times-circle"></i></a>
-            </td> #}
+            </td>
         </tr>
-            
+            {% else %}
+                
             <tr>
-                {# <td colspan="7" class="bg-warning text-center">Aucun chambre dans la poubelle</td> #}
-
+                 <td colspan="7" class="bg-warning text-center">Aucun chambre dans la poubelle</td>
             </tr>
+            {% endfor %}
                
                 </tbody>
             </table>

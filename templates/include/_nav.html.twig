@@ -53,11 +53,9 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Espace Admin
           </a>
-
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{ path('create_chambre') }}">Ajouter une chambre</a></li>
             <li><a class="dropdown-item" href="{{ path('show_dashboard') }}">Tableau de bord</a></li>
-            <li><a class="dropdown-item" href="{{ path('show_trash') }}">Voir la poubele</a></li>
-
           </ul>
         </li>
          {% endif %}
