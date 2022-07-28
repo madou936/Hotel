@@ -39,6 +39,18 @@ class ChambreRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function findByTrash(string $order = 'DESC')
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.deletedAt IS NOT NULL')
+            ->orderBy('a.createdAt', $order)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
 //    /**
 //     * @return Chambre[] Returns an array of Chambre objects
 //     */
