@@ -37,7 +37,7 @@ class MembreController extends AbstractController
             $entityManager->persist($membre);
             $entityManager->flush();
 
-            return $this->redirectToRoute('default_home');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render("membre/register.html.twig", [
