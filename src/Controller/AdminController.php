@@ -100,9 +100,9 @@ class AdminController extends AbstractController
     {
         $originalPhoto = $chambre->getPhoto();
 
-        $form = $this->createForm(ChambreFormType::class, $chambre, [
-            'photo' => $originalPhoto
-        ])->handleRequest($request);
+        $photo = $originalPhoto;
+
+        $form = $this->createForm(ChambreFormType::class, $chambre)->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
