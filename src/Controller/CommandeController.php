@@ -13,7 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommandeController extends AbstractController
 {
-    
     /**
      * @Route("reserver-une-chambre", name="book_commandes", methods={"GET|POST"})
      */
@@ -24,7 +23,6 @@ class CommandeController extends AbstractController
         $form = $this->createForm(CommandeFormType::class, $commande)
             ->handleRequest($request);
 
-        $price = 50;
         if($form->isSubmitted() && $form->isValid()) {
 
             $commande->setCreatedAt(new DateTime());
