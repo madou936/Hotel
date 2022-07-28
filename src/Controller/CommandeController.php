@@ -24,6 +24,7 @@ class CommandeController extends AbstractController
         $form = $this->createForm(CommandeFormType::class, $commande)
             ->handleRequest($request);
 
+        $price = 50;
         if($form->isSubmitted() && $form->isValid()) {
 
             $commande->setCreatedAt(new DateTime());
@@ -32,7 +33,7 @@ class CommandeController extends AbstractController
             $entityManager->persist($commande);
             $entityManager->flush();
 
-            $this->addFlash('success', "Votre résérvation a bien été effectué !");
+            $this->addFlash('success', "Merci, votre résérvation a bien été effectué !");
             return $this->redirectToRoute('default_home');
         }
 
