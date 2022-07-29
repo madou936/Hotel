@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class AvisFormType extends AbstractType
@@ -41,7 +42,14 @@ class AvisFormType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Avis de la chambre'
                 ],
-            ]);
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Valider',
+                'validate' => false,
+                'attr' => [
+                    'class' => 'd-block col-4 my-4 mx-auto btn btn-primary'
+                ]
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
