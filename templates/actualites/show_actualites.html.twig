@@ -10,13 +10,15 @@ Voir les actualites
     <img src="{{ asset('img/news.jpg') }}" class="card-img" alt="...">
     <div class="card-img-overlay">
         
-    <h1 class="text-color-Light">
+    {# <h1 class="text-color-Light">
     Voir les actualites
-    </h1>
+    </h1> #}
         
         </div>
     </div>
-
-<rssapp-wall id="RYPbiT5LTsrKwhhL"></rssapp-wall><script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
-
+<div class="container">
+<rssapp-wall id="RYPbiT5LTsrKwhhL">
+</rssapp-wall>
+<script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+</div>
 {% endblock %}
