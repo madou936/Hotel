@@ -10,7 +10,7 @@
 ###< symfony/framework-bundle ###
 
 /.vscode/*
-/public/img/    
+#/public/img/    
 /public/uploads/
 .DS_Store
 
