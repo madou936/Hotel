@@ -66,13 +66,6 @@ class Commande
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $deletedAt;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Chambre::class, inversedBy="commande", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $reservation;
-
    
 
     public function getId(): ?int
@@ -201,16 +194,6 @@ class Commande
         return $this;
     }
 
-    public function getReservation(): ?Chambre
-    {
-        return $this->reservation;
-    }
 
-    public function setReservation(Chambre $reservation): self
-    {
-        $this->reservation = $reservation;
-
-        return $this;
-    }
 
 }
