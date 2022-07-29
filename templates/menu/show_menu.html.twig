@@ -1,36 +1,53 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}voir la carte {% endblock %}
+{% block titre %}nos menus du jour{% endblock %}
 
 {% block body %}
 
-<h1 class="text-center">*** nos menus du jour*** </h1>
-
-
-
-
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{asset('img/')}}" class="d-block w-50 " alt="... ">
+<div class="card bg-dark text-white">
+    <img src="{{ asset('img/rest_banner.jpg') }}" alt="">
+    <div class="carousel-caption d-none d-md-block">
+        <h1>Notre restaurant</h1>
     </div>
-    <div class="carousel-item">
-      <img src="{{asset('img/')}} " class="d-block w-50" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{{asset('img/')}}" class="d-block w-50" alt="...">
-    </div>
+ 
+
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-  
 </div>
+
+
+
+<div class="container">
+
+ <div class="row justify-content-around">
+    <div class="col-6 my-4">
+    <img src="{{ asset('img/menu1.jpg') }}" alt="">
+    </div>
+
+    
+    <div class="col-6 my-4">
+
+     <div class="card bg-dark text-white">
+  <img src="{{ asset('img/menu2.jpg') }}" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h1 class="card-title text-dark text-center">Le menus du jour</h1>
+    <h5 class="card-title text-dark text-center mt-5">Name of Dish</h5>
+    <p class="ccard-title text-dark text-center pt-0">Eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
+    <p class="ccard-title text-dark text-center">11.00 </p>
+    <h5 class="card-title text-dark text-center mt-5">Name of Dish</h5>
+    <p class="ccard-title text-dark text-center pt-0">Eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
+    <p class="ccard-title text-dark text-center">15.00 </p>
+    <h5 class="card-title text-dark text-center mt-5">Name of Dish</h5>
+    <p class="ccard-title text-dark text-center pt-0">Eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
+    <p class="ccard-title text-dark text-center">20.00 </p>
+  </div>
+</div>
+
+    </div>
+    </div>
+
+</div>
+   
+
 
 
 
