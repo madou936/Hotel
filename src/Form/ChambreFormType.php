@@ -20,7 +20,7 @@ class ChambreFormType extends AbstractType
             ->add('titre', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => "Titre de l'annoce"
+                    'placeholder' => "Nom de la chambre"
                 ],
             ])
             ->add('descriptionCourte', TextareaType::class, [

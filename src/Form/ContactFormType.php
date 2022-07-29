@@ -34,7 +34,7 @@ class ContactFormType extends AbstractType
         ])
         
         ->add('sujet', TextType::class, [
-            'label' => 'votre sujet ',
+            'label' => 'Votre sujet ',
                       
         ])
         
@@ -55,7 +55,7 @@ class ContactFormType extends AbstractType
 
         ])
         ->add('message', TextareaType::class, [
-            'label' => 'votre message ',
+            'label' => 'Votre message ',
                 
         ])
 
