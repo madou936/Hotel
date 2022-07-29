@@ -10,8 +10,8 @@
 ###< symfony/framework-bundle ###
 
 /.vscode/*
-/public/img/    
-/public/uploads/
+#/public/img/    
+#/public/uploads/
 .DS_Store
 
 ###> phpunit/phpunit ###
