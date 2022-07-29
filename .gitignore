@@ -11,7 +11,7 @@
 
 /.vscode/*
 #/public/img/    
-/public/uploads/
+#/public/uploads/
 .DS_Store
 
 ###> phpunit/phpunit ###
