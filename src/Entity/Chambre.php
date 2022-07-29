@@ -62,11 +62,6 @@ class Chambre
      */
     private $alias;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Commande::class, mappedBy="reservation", cascade={"persist", "remove"})
-     */
-    private $commande;
-
    
     public function getId(): ?int
     {
@@ -179,23 +174,6 @@ class Chambre
     public function setAlias(string $alias): self
     {
         $this->alias = $alias;
-
-        return $this;
-    }
-
-    public function getCommande(): ?Commande
-    {
-        return $this->commande;
-    }
-
-    public function setCommande(Commande $commande): self
-    {
-        // set the owning side of the relation if necessary
-        if ($commande->getReservation() !== $this) {
-            $commande->setReservation($this);
-        }
-
-        $this->commande = $commande;
 
         return $this;
     }
