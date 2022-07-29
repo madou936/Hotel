@@ -32,7 +32,6 @@ class CommandeController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', "Merci, votre résérvation a bien été effectué !");
-            return $this->redirectToRoute('default_home');
         }
 
         return $this->render("commande/show_commandes.html.twig", [
