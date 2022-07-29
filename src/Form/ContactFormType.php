@@ -37,12 +37,9 @@ class ContactFormType extends AbstractType
                       
         ])
         
-        ->add('message', TextType::class, [
-            'label' => 'votre message ',
-                
-        ])
+        
         ->add('categorie', ChoiceType::class, [
-            'label' => 'Zone de selection',
+            'label' => 'Categorie',
             'expanded' => true,
                 'choices' => [
                     'Chambre' => 'chambre',
@@ -53,7 +50,12 @@ class ContactFormType extends AbstractType
                 'choice_attr' => [
                     "Chambre" => ['selected' => 'selected']
 
-                ]          
+                ]  
+
+        ])
+        ->add('message', TextType::class, [
+            'label' => 'votre message ',
+                
         ])
 
          ->add('submit', SubmitType::class, [
